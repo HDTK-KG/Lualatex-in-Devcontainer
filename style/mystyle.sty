@@ -1,0 +1,60 @@
+\usepackage{luatexja}
+\usepackage{fontspec}
+\usepackage[noto-cjk]{luatexja-fontspec}
+% コード
+\usepackage{listings,jvlisting}
+%多段組
+\usepackage{multicol}
+%数式
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{empheq}
+\usepackage{bm,bbm}
+\usepackage{mathcomp}
+\usepackage{braket,physics}
+%画像
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc, arrows.meta}
+\usetikzlibrary{3d}
+%表
+\usepackage{booktabs}
+%箇条書き
+\usepackage{enumerate}
+%下線
+\usepackage{ulem}
+%囲み
+\usepackage{ascmac}
+\usepackage{fancybox}
+\usepackage{tcolorbox}
+%キャプション
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+%hyperlink
+\usepackage{hyperref}
+%参照
+\usepackage{cite}
+
+%字下げしない
+\setlength{\parindent}{0pt}
+
+\newcommand{\reduwave}[1]{\textcolor{red}{\uwave{\textcolor{black}{#1}}}}
+
+% --- 定義用の新しいtcolorbox環境 (赤色) ---
+% \begin{deftcolorbox}[オプション] ... \end{deftcolorbox} で使える
+\newtcolorbox{deftcolorbox}[1][]{
+    colback=red!10!white,   % 背景色
+    colframe=red!75!black,  % フレームの色
+    #1                      % 引数で渡されたオプションを適用
+}
+
+% --- 定理用の新しいtcolorbox環境 (青色) ---
+% \begin{theotcolorbox}[オプション] ... \end{theotcolorbox} で使える
+\newtcolorbox{theotcolorbox}[1][]{
+    colback=blue!10!white,  % 背景色
+    colframe=blue!75!black, % フレームの色
+    #1
+}

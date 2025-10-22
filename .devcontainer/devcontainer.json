@@ -1,0 +1,95 @@
+{
+  "name": "LaTeX Editor",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "tomoki1207.pdf",
+        "ICS.japanese-proofreading"
+      ],
+      "settings": {
+        // 設定: LaTeX Workshop
+        "latex-workshop.latex.tools": [
+          {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": [
+              "--cmdx",
+              "-file-line-error",
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-halt-on-error",
+              "%DOC%"
+            ],
+            "env": {}
+          },
+          {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+              "%DOCFILE%"
+            ],
+          }
+        ],
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "lualatex",
+            "tools": [
+              "lualatex"
+            ]
+          },
+          {
+            "name": "pt2p-pt2p",
+            "tools": [
+              "ptex2pdf", //タイプセットに使うtoolの名前
+              "ptex2pdf"
+            ]
+          },
+          {
+            "name": "pt2p-bib-pt2p-pt2p",
+            "tools": [
+              "Step 1: ptex2pdf",
+              "Step 2: pbibtex",
+              "Step 3: ptex2pdf",
+              "Step 4: ptex2pdf"
+            ]
+          }
+        ],
+        "latex-workshop.latex.clean.fileTypes": [
+          "*.aux",
+          "*.bbl",
+          "*.blg",
+          "*.idx",
+          "*.ind",
+          "*.lof",
+          "*.lot",
+          "*.out",
+          "*.toc",
+          "*.acn",
+          "*.acr",
+          "*.alg",
+          "*.glg",
+          "*.glo",
+          "*.gls",
+          "*.ist",
+          "*.fls",
+          "*.log",
+          "*.fdb_latexmk",
+          "*.synctex.gz",
+          // for Beamer files
+          "_minted*",
+          "*.nav",
+          "*.snm",
+          "*.vrb",
+        ],
+        "latex-workshop.view.pdf.viewer": "tab",
+        "latex-workshop.latex.autoClean.run": "onFailed",
+        "latex-workshop.latex.clean.enabled": true, //上とぶつからないかな？auxiliaryファイル削除
+        "latex-workshop.latex.autoBuild.run": "never"
+      }
+    }
+  }
+}
